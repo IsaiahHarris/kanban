@@ -13,8 +13,8 @@ router.route('/')
       })
   })
   .post((req, res) => {
-    const title = req.body.title
-    const body = req.body.body
+    const title = req.body.title.trim()
+    const body = req.body.body.trim()
     const priority_id = req.body.priority_id
     const status_id = req.body.status_id
     const created_by = req.body.created_by

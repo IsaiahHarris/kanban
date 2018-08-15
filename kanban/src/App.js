@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import axios from 'axios';
 import Card from './components/Card'
 import './App.css';
+import NewCardForm from './components/NewCardForm'
 import CardList from './components/CardList';
 import Header from './components/Header'
 class App extends React.Component {
@@ -27,7 +28,7 @@ class App extends React.Component {
   }
 
   componentDidMount(){
-    axios.get('/cards')
+    axios.get('/api/cards')
     .then(response=>{
       this.setState({cards: response.data})
     })
@@ -62,15 +63,16 @@ class App extends React.Component {
   }
 
   addNewCard(event){
+    console.log('clicked')
     const data = {}
     data.title = this.state.titleInput
     data.body = this.state.bodyInput
-    data.priority = this.state.priorityInput
-    data.status = this.state.statusInput
+    data.priority_id = this.state.priorityInput
+    data.status_id = this.state.statusInput
     data.created_by = this.state.created_byInput
     data.assigned_to = this.state.assigned_toInput
 
-    axios.post('/cards', data)
+    axios.post('/api/cards', data)
     .then(response=>{
       const card = response.data;
       this.setState(prevState=>{
@@ -85,7 +87,7 @@ class App extends React.Component {
       });
     })
     .catch(err=>{
-      console.log(err)
+      console.log(err.message)
     })
   }
   render() {
@@ -93,6 +95,16 @@ class App extends React.Component {
       <div className="App">
         <Header />
         <CardList cards={this.state.cards} className='cards' />
+        <NewCardForm
+        changeHandler= {this.handleInputChange}
+        formHandler = {this.addNewCard}
+        titleInput = {this.state.titleInput}
+        bodyInput = {this.state.bodyInput}
+        priorityInput = {this.state.priorityInput}
+        statusInput = {this.state.statusInput}
+        created_byInput = {this.state.created_byInput}
+        assigned_toInput = {this.state.assigned_toInput}
+        />
       </div>
     );
   }
