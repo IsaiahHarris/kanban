@@ -1,14 +1,18 @@
 import React from 'react';
+import '../../../src/styles.css'
+const Card = ({title, body, priority, status, created_by, assigned_to})=>{
 
-const Card = ({title, body, priority, status, created_by, assigned_to})=>(
-  <div className="card-container">
-    <div className="title">{ title }</div>
-    <div className="body">{ body }</div>
-    <div className="priority">{ priority }</div>
-    <div className="status">{ status }</div>
-    <div className="created_by">{ created_by }</div>
-    <div className="assigned_to">{ assigned_to }</div>
-  </div>
-)
+    return (
+      <div className="card-entry">     
+      <div className="title">Title: { title }</div>    
+      <div className="body">Body: { body }</div>
+      <div className="priority">Priority: { priority }</div>
+      <div className="status">Status: { status }</div>
+      <div className="created_by">Created By { created_by }</div>
+      <div className="assigned_to">Assigned To{ assigned_to }</div> 
+      </div> 
+    )
+}
+
 
 export default Card;

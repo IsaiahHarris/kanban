@@ -20,10 +20,7 @@ class App extends React.Component {
     return (
       <div className="App">
        <Header/>
-        <CardList cards = {this.state.cards}/>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <CardList cards = {this.state.cards} className = 'cards'/>
       </div>
     );
   }

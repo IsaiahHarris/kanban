@@ -1,7 +1,12 @@
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 8080;
+const bodyParser = require('body-parser')
+const routes = require('../routes')
+app.use(bodyParser.urlencoded())
+app.use(bodyParser.json())
 
+app.use('/', routes)
 app.get('/',(req,res)=>{
   res.send('smoke test')
 })

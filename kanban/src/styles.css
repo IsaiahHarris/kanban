@@ -1,0 +1,21 @@
+body, html{
+  height:100%;
+  width:100%;
+}
+
+.card-list-container{
+  display: flex;
+  justify-content: center;
+  background-color:green;
+  height: 70%;
+  width:100%;
+}
+
+.card-entry{
+  height: 20%;
+  width:20%;
+}
+
+#root{
+  height: 100%;
+}

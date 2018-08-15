@@ -1,10 +1,10 @@
 import React from 'react';
-
 import Card from './Card';
+import '../../src/styles.css'
 
 const CardList = props=>{
   return (
-    <ul>
+    <div className="card-list-container"> 
       {
         props.cards.map((card,i)=>{
           return <Card key={i} 
@@ -17,7 +17,7 @@ const CardList = props=>{
           />
         })
       }
-    </ul>
+    </div>
   )
 }
 
