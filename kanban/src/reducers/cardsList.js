@@ -9,6 +9,7 @@ const cardsList = (state = initialState, action) => {
     case LOAD_CARDS:
       return [...action.cards];
     case ADD_CARD:
+    console.log('action.card', action.card);
     return [...state, action.card]
     default:
       return state;

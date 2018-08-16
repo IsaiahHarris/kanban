@@ -16,6 +16,7 @@ export const loadCards = () => {
 
 
 export const addCard = (data) =>{
+  console.log('THIS IS DATA',data);
   return dispatch =>{
     axios.post('/api/cards', data)
     .then(response=>{
