@@ -33,5 +33,8 @@ router.route('/')
     .then(card=>{
       return res.json(card)
     })
+    .catch(err=>{
+      console.log(err)
+    })
   })
 module.exports = router;
