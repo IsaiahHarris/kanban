@@ -11,8 +11,8 @@ const CardList = props=>{
           return <Card key={i} 
           title={card.title} 
           body = {card.body}
-          priority = {card.priority}
-          status = {card.status}
+          priority_id = {card.priority_id}
+          status_id = {card.status_id}
           created_by = {card.created_by}
           assigned_to = {card.assigned_to}
           />

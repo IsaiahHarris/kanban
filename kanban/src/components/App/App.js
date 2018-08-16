@@ -60,7 +60,7 @@ class App extends React.Component {
   }
 
   addNewCard(event){
-    console.log('clicked')
+    console.log('clicked', this.state.priorityInput)
     const data = {}
     data.title = this.state.titleInput
     data.body = this.state.bodyInput
@@ -84,7 +84,7 @@ class App extends React.Component {
       });
     })
     .catch(err=>{
-      console.log(err.message)
+      console.log(err)
     })
   }
   render() {
