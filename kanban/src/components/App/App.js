@@ -8,6 +8,7 @@ import './App.css';
 import NewCardForm from '../NewCardForm'
 import CardList from '../CardList';
 import Header from '../Header'
+import Column from '../Column'
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -91,7 +92,11 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header />
-        <CardList cards={this.props.cards} className='cards' />
+        <div className="main-body">
+        <Column cards = {this.props.cards}/>
+        <Column cards =  {this.props.cards}/>
+        <Column cards = {this.props.cards}/>
+        </div>
         <NewCardForm
         changeHandler= {this.handleInputChange}
         formHandler = {this.addNewCard}

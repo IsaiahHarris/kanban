@@ -8,9 +8,28 @@ html, body{
   width: 100%;
 }
 
+.column-container{
+  height: 100%;
+  width: 30%;
+  border-left:1px solid black;
+  border-right:1px solid black;
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-body{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
 
 .App-intro {
   font-size: large;
 }
-
+.card-entry{
+  
+}
 

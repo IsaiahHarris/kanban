@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../src/styles.css'
+import '../../styles.css'
 import PropTypes from 'prop-types';
 
 const Card = ({title, body, priority_id, status_id, created_by, assigned_to})=>{

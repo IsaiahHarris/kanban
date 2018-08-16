@@ -13,7 +13,9 @@ body, html{
 
 .card-entry{
   height: 20%;
-  width:20%;
+  width:100%;
+  background-color:green;
+  margin-top:10px;
 }
 
 #root{
