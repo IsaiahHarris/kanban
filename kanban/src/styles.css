@@ -6,13 +6,14 @@ body, html{
 .card-list-container{
   display: flex;
   justify-content: center;
-  background-color:green;
+  flex-wrap:wrap;
   height: 70%;
   width:100%;
 }
 
 .card-entry{
   height: 20%;
+  margin-top:10px;
   width:100%;
   background-color:green;
   margin-top:10px;
