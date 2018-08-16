@@ -2,9 +2,10 @@ import React from 'react';
 import '../../styles.css'
 import PropTypes from 'prop-types';
 
-const Card = ({title, body, priority_id, status_id, created_by, assigned_to})=>{
+const Card = ({title, body, priority_id, status_id, created_by, assigned_to, label})=>{
     return (
-      <div className="card-entry">     
+      
+      <div className="card-entry"> 
       <div className="title">Title: { title }</div>    
       <div className="body">Body: { body }</div>
       <div className="priority_id">Priority: { priority_id }</div>

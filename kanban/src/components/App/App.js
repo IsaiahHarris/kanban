@@ -93,9 +93,9 @@ class App extends React.Component {
       <div className="App">
         <Header />
         <div className="main-body">
-        <Column cards = {this.props.cards}/>
-        <Column cards =  {this.props.cards}/>
-        <Column cards = {this.props.cards}/>
+        <Column label = "QUEUE" cards = {this.props.cards}/>
+        <Column label = "In Progress" cards =  {this.props.cards}/>
+        <Column label = "Done" cards = {this.props.cards}/>
         </div>
         <NewCardForm
         changeHandler= {this.handleInputChange}

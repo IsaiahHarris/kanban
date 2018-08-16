@@ -10,13 +10,14 @@ html, body{
 
 .column-container{
   height: 100%;
-  width: 30%;
-  border-left:1px solid black;
-  border-right:1px solid black;
+  width: 27%;
+  /* border-left:1px solid black;
+  border-right:1px solid black; */
   display: flex;
   flex-direction:column;
   justify-content: center;
   align-items: center;
+  padding:5px;
 }
 
 .main-body{
@@ -30,6 +31,6 @@ html, body{
   font-size: large;
 }
 .card-entry{
-  
+
 }
 
