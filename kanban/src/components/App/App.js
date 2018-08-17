@@ -17,6 +17,7 @@ class App extends React.Component {
 
   componentDidMount() {
     this.props.loadCards();
+    console.log('this.props', this.props);
   }
 
   render() {
@@ -34,10 +35,8 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  
+const mapStateToProps = state => { 
   return {
-
     cards: state.cardsList
   }
 }

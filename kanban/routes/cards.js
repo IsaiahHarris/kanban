@@ -42,4 +42,22 @@ router.route('/')
       console.log(err)
     })
   })
+
+  router.route('/:id')
+  .get((req,res)=>{
+    let id = req.params.id;
+    return Card
+    .query({where: {id:id}})
+    .fetchAll({
+      withRelated: ['priority', 'status', 'created','assigned']
+    })
+    .then(card=>{
+      let cardInfo = card.toJSON();
+      console.log('cardInfo', cardInfo);
+      res.json(card)
+    })
+    .catch(err=>{
+      console.log('err.message', err.message);
+    })
+  })
 module.exports = router;

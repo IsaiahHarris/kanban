@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import AddCardButton from '../AddCardButton';
-import { addCard } from '../../actions'
+import EditCardButton from '../EditCardButton'
+import { editCard } from '../../actions';
 import { connect } from 'react-redux'
-import {editCard} from '../../actions'
-import './NewCardForm.css'
+import './EditCardForm.css';
 import axios from 'axios';
-class NewCardForm extends Component {
+
+class EditCardForm extends Component {
   constructor(props) {
     super(props)
+
     this.state = {
       titleInput: '',
       bodyInput: '',
@@ -16,10 +17,9 @@ class NewCardForm extends Component {
       created_byInput: '',
       assigned_toInput: '',
     }
-    this.addNewCard = this.addNewCard.bind(this)
+    this.editThisCard = this.editThisCard.bind(this)
     this.handleInputChange = this.handleInputChange.bind(this);
   }
-
   handleInputChange(event) {
     console.log('event.target', event.target);
     switch (event.target.id) {
@@ -46,7 +46,7 @@ class NewCardForm extends Component {
     }
   }
 
-  addNewCard(event) {
+  editThisCard(event) {
 
     const data = {}
     data.title = this.state.titleInput
@@ -67,7 +67,7 @@ class NewCardForm extends Component {
       default:
     }
     console.log('data', data);
-    this.props.addCard(data)
+    this.props.editCard(data)
     this.setState({
       titleInput: '',
       bodyInput: '',
@@ -79,7 +79,6 @@ class NewCardForm extends Component {
   }
 
   render() {
-    console.log('STATUS INPUT', this.state.priorityInput)
     return (
       <div className="NewCardForm-container">
         <label htmlFor="title">Title:</label>
@@ -130,7 +129,7 @@ class NewCardForm extends Component {
           value={this.state.assigned_toInput}
           onChange={this.handleInputChange}
         />
-        <AddCardButton label='Add Task' clickHandler={this.addNewCard} />
+        <EditCardButton label='Add Task' clickHandler={this.editThisCard} />
       </div>
     )
   }
@@ -138,12 +137,10 @@ class NewCardForm extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addCard: (card) => {
-      dispatch(addCard(card))
+    editCard: (card) => {
+      dispatch(editCard(card))
     }
   }
 }
 
-
-
-export default connect(null, mapDispatchToProps)(NewCardForm)
+export default connect(null,  mapDispatchToProps)(EditCardForm)
