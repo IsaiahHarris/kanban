@@ -6,7 +6,7 @@ import CardList from '../CardList';
 const Column = props => {
   // console.log('PROPS', props)
   let filterFunc = filterCards(props.label, props.cards)
-  console.log('filterFunc', filterFunc);
+
   return (
     <div className="column-container">
       <div className="label">{props.label}</div>

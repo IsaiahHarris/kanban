@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import AddCardButton from '../AddCardButton';
 import { addCard } from '../../actions'
 import { connect } from 'react-redux'
+import './NewCardForm.css'
 import axios from 'axios';
 class NewCardForm extends Component {
   constructor(props) {
@@ -19,6 +20,7 @@ class NewCardForm extends Component {
   }
 
   handleInputChange(event) {
+    console.log('event.target', event.target);
     switch (event.target.id) {
       case 'title':
         this.setState({ titleInput: event.target.value })
@@ -29,7 +31,7 @@ class NewCardForm extends Component {
       case 'priority':
         this.setState({ priorityInput: event.target.value })
         break;
-      case 'status':
+      case 'status_id':
         this.setState({ statusInput: event.target.value })
         break;
       case 'created_by':
@@ -42,16 +44,28 @@ class NewCardForm extends Component {
         break;
     }
   }
-  
+
   addNewCard(event) {
-    
+
     const data = {}
     data.title = this.state.titleInput
     data.body = this.state.bodyInput
     data.priority_id = parseInt(this.state.priorityInput)
-    data.status_id = parseInt(this.state.statusInput)
     data.created_by = parseInt(this.state.created_byInput)
     data.assigned_to = parseInt(this.state.assigned_toInput)
+
+
+    switch (this.state.statusInput) {
+
+      case 'QUEUE':
+        data.status_id = 1
+      case 'In Progress':
+        data.status_id = 2
+      case 'Done':
+        data.status_id = 3
+      default:
+        break;
+    }
     this.props.addCard(data)
     this.setState({
       titleInput: '',
@@ -64,6 +78,7 @@ class NewCardForm extends Component {
   }
 
   render() {
+    console.log('STATUS INPUT', this.state)
     return (
       <div className="NewCardForm-container">
         <label htmlFor="title">Title:</label>
@@ -88,12 +103,23 @@ class NewCardForm extends Component {
           onChange={this.handleInputChange}
         />
         <label htmlFor="status">Status_id:</label>
-        <input type="text"
-          name="status_id"
-          id="status"
+        {/* <select id="pet-select">
+          <option value="">--Please choose an option--</option>
+          <option value="dog">Dog</option>
+          <option value="cat">Cat</option>
+          <option value="hamster">Hamster</option>
+          <option value="parrot">Parrot</option>
+          <option value="spider">Spider</option>
+          <option value="goldfish">Goldfish</option>
+        </select> */}
+        <select name="status_id" id="status_id" 
           value={this.state.statusInput}
           onChange={this.handleInputChange}
-        />
+          >
+          <option value = "QUEUE"> QUEUE </option>
+          <option value = "In Progress"> In Progress </option>
+          <option value = "Done" > Done </option>
+        </select>
         <label htmlFor="created_by">Created_by:</label>
         <input type="text"
           name="created_by"
@@ -114,9 +140,9 @@ class NewCardForm extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch=>{
+const mapDispatchToProps = dispatch => {
   return {
-    addCard:(card)=>{
+    addCard: (card) => {
       dispatch(addCard(card))
     }
   }
