@@ -11,8 +11,8 @@ const CardList = props => {
           const statusName = card && card.status ? card.status.name:null
           const priorityName = card && card.priority ? card.priority.name : null
           console.log('typeof priorityName', typeof priorityName);
-          const created_by = card && card.created_by ? card.created_by.first_name : null
-          const assigned_to = card && card.assigned_to ? card.assigned_to.first_name : null
+          const created_by = card && card.created ? card.created.first_name : null
+          const assigned_to = card && card.assigned ? card.assigned.first_name : null
           return <Card key={i}
             title={card.title}
             body={card.body}

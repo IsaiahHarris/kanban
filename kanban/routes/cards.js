@@ -3,7 +3,7 @@ const router = express.Router();
 const Card = require('../server/db/models/Card')
 router.route('/')
   .get((req, res) => {
-    console.log('get cards')
+    // console.log('get cards')
     return Card.fetchAll({withRelated: ['priority', 'created', 'assigned', 'status']})
       .then(cards => {
         return res.json(cards)
@@ -31,7 +31,7 @@ router.route('/')
     return new Card(card)
     .save()
     .then(newCard=>{
-      return newCard.refresh({withRelated: ['priority']})
+      return newCard.refresh({withRelated: ['priority', 'status', 'created','assigned']})
       // return res.json(newCard)
     })
     .then(card=>{
