@@ -28,7 +28,7 @@ class NewCardForm extends Component {
       case 'body':
         this.setState({ bodyInput: event.target.value })
         break;
-      case 'priority':
+      case 'priority_id':
         this.setState({ priorityInput: event.target.value })
         break;
       case 'status_id':
@@ -50,24 +50,23 @@ class NewCardForm extends Component {
     const data = {}
     data.title = this.state.titleInput
     data.body = this.state.bodyInput
-    data.priority_id = parseInt(this.state.priorityInput)
     data.created_by = parseInt(this.state.created_byInput)
     data.assigned_to = parseInt(this.state.assigned_toInput)
-
-    console.log('this.state.statusInput', this.state.statusInput);
-    switch (this.state.priorityInput) {
-      case 'High':
-        data.priority_id = 1
-        break;
-      case 'Med':
-        data.priority_id = 2
-        break;
-      case 'Low':
-        data.priority_id = 3
-        break;
-      default:
-        break;
-    }
+    data.priority_id = parseInt(this.state.priorityInput)
+    console.log('this.state.statusInput', this.state.priorityInput);
+    // switch (this.state.priorityInput) {
+    //   case 'High':
+    //     data.priority_id = 1
+    //     break;
+    //   case 'Med':
+    //     data.priority_id = 2
+    //     break;
+    //   case 'Low':
+    //     data.priority_id = 3
+    //     break;
+    //   default:
+    //     break;
+    // }
     switch (this.state.statusInput) {
       case "QUEUE":
         data.status_id = 1
@@ -111,12 +110,15 @@ class NewCardForm extends Component {
           onChange={this.handleInputChange}
         />
         <label htmlFor="priority">Priority_id:</label>
-        <input type="text"
-          name="priority_id"
-          id="priority"
+        <select name="priority_id" id="priority_id"
           value={this.state.priorityInput}
           onChange={this.handleInputChange}
-        />
+        >
+          <option value="">--Please choose an option--</option>
+          <option value="1" >High</option>
+          <option value="2">Med</option>
+          <option value="3">Low</option>
+        </select>
         <select name="status_id" id="status_id"
           value={this.state.statusInput}
           onChange={this.handleInputChange}

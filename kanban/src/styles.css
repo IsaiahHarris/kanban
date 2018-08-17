@@ -7,7 +7,7 @@ body, html{
   display: flex;
   justify-content: center;
   flex-wrap:wrap;
-  height: 70%;
+  height: 100%;
   width:100%;
 }
 
@@ -15,10 +15,25 @@ body, html{
   height: 20%;
   margin-top:10px;
   width:100%;
-  background-color:green;
+
   margin-top:10px;
 }
 
 #root{
   height: 100%;
 }
+
+.Done{
+  background-color: red;
+  height: 100%;
+}
+.Queue{
+  background-color: green;
+  height:100%;
+}
+
+.In.Progress{
+  background-color: aqua;
+  height: 100%;
+}
+
