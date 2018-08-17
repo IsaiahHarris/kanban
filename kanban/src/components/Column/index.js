@@ -4,27 +4,30 @@ import './Column.css';
 import CardList from '../CardList';
 
 const Column = props => {
-  console.log('PROPS', props)
+  // console.log('PROPS', props)
+  let filterFunc = filterCards(props.label, props.cards)
+  console.log('filterFunc', filterFunc);
   return (
     <div className="column-container">
       <div className="label">{props.label}</div>
-      <CardList cards={filterCards(props)}/>
+      <CardList cards={filterFunc}/>
     </div>
   )
 }
 
 
 
-function filterCards(props) {
-  switch (props.label) {
+function filterCards(label, cards) {
+
+  switch (label) {
     case 'QUEUE':
-      return props.cards.filter(card => card.status_id === 1);
+      return cards.filter(card => card.status_id === 1);
     case 'In Progress':
-      return props.cards.filter(card=>card.status_id === 2);
+      return cards.filter(card=>card.status_id === 2);
     case 'Done':
-    return props.cards.filter(card => card.status_id === 3);
+    return cards.filter(card => card.status_id === 3);
     default:
-    return props.cards;
+    return cards;
   }
 }
 

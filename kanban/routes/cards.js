@@ -30,8 +30,8 @@ router.route('/')
     }
     return new Card(card)
     .save()
-    .then(card=>{
-      return res.json(card)
+    .then(newCard=>{
+      return res.json(newCard)
     })
     .catch(err=>{
       console.log(err)

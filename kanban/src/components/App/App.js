@@ -20,6 +20,7 @@ class App extends React.Component {
   }
 
   render() {
+    console.log('this.props.cards', this.props.cards);
     return (
       <div className="App">
         <Header />
@@ -35,7 +36,9 @@ class App extends React.Component {
 }
 
 const mapStateToProps = state => {
+  
   return {
+
     cards: state.cardsList
   }
 }

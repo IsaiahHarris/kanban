@@ -6,7 +6,6 @@ import axios from 'axios';
 class NewCardForm extends Component {
   constructor(props) {
     super(props)
-    console.log('its lit',props);
     this.state = {
       titleInput: '',
       bodyInput: '',
@@ -45,15 +44,14 @@ class NewCardForm extends Component {
   }
   
   addNewCard(event) {
-    console.log('clicked', this.state.priorityInput)
     
     const data = {}
     data.title = this.state.titleInput
     data.body = this.state.bodyInput
-    data.priority_id = this.state.priorityInput
-    data.status_id = this.state.statusInput
-    data.created_by = this.state.created_byInput
-    data.assigned_to = this.state.assigned_toInput
+    data.priority_id = parseInt(this.state.priorityInput)
+    data.status_id = parseInt(this.state.statusInput)
+    data.created_by = parseInt(this.state.created_byInput)
+    data.assigned_to = parseInt(this.state.assigned_toInput)
     this.props.addCard(data)
     this.setState({
       titleInput: '',

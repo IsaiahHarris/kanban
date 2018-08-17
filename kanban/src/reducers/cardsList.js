@@ -7,10 +7,11 @@ const initialState = [
 const cardsList = (state = initialState, action) => {
   switch (action.type) {
     case LOAD_CARDS:
-      return [...action.cards];
+    return [...action.cards];
     case ADD_CARD:
-    console.log('action.card', action.card);
-    return [...state, action.card]
+
+    // console.log('state', [...state, action.card]);
+    return [...state, action.card];
     default:
       return state;
   }

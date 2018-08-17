@@ -4,6 +4,7 @@ import '../../src/styles.css'
 import PropTypes from 'prop-types';
 
 const CardList = props=>{
+  console.log('PrOpS', props);
   return (
     <div className="card-list-container"> 
       {
