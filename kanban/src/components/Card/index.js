@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const Card = ({title, body, statusName, priority, status_id, created_by, assigned_to, label})=>(
   
 
-      <div className={`${statusName}-hi`}>
+      <div className={`${statusName}-card`}>
       <div className="title">Title: { title }</div>    
       <div className="body">Body: { body }</div>
       <div className="priority_id">Priority: { priority }</div>

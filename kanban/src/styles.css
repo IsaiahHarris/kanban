@@ -11,7 +11,7 @@ body, html{
   width:100%;
 }
 
-.Done-hi{
+.Done-card{
   height: 20%;
   margin-top:10px;
   width:100%;
@@ -19,7 +19,7 @@ body, html{
   margin-top:10px;
 }
 
-.Queue-hi{
+.Queue-card{
   height: 20%;
   margin-top:10px;
   width:100%;
@@ -27,7 +27,7 @@ body, html{
   margin-top:10px;
 }
 
-.In.Progress-hi{
+.In.Progress-card{
   height: 20%;
   margin-top:10px;
   width:100%;

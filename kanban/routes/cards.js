@@ -31,7 +31,12 @@ router.route('/')
     return new Card(card)
     .save()
     .then(newCard=>{
-      return res.json(newCard)
+      return newCard.refresh({withRelated: ['priority']})
+      // return res.json(newCard)
+    })
+    .then(card=>{
+     console.log('card', card);
+     return res.json(card)
     })
     .catch(err=>{
       console.log(err)

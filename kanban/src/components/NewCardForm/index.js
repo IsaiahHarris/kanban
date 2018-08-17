@@ -53,9 +53,8 @@ class NewCardForm extends Component {
     data.created_by = parseInt(this.state.created_byInput)
     data.assigned_to = parseInt(this.state.assigned_toInput)
     data.priority_id = parseInt(this.state.priorityInput)
-    console.log('this.state.statusInput', this.state.priorityInput);
     // switch (this.state.priorityInput) {
-    //   case 'High':
+    //   case '':
     //     data.priority_id = 1
     //     break;
     //   case 'Med':
@@ -67,6 +66,7 @@ class NewCardForm extends Component {
     //   default:
     //     break;
     // }
+
     switch (this.state.statusInput) {
       case "QUEUE":
         data.status_id = 1
@@ -92,7 +92,7 @@ class NewCardForm extends Component {
   }
 
   render() {
-    console.log('STATUS INPUT', this.state.statusInput)
+    console.log('STATUS INPUT', this.state.priorityInput)
     return (
       <div className="NewCardForm-container">
         <label htmlFor="title">Title:</label>
@@ -119,6 +119,7 @@ class NewCardForm extends Component {
           <option value="2">Med</option>
           <option value="3">Low</option>
         </select>
+
         <select name="status_id" id="status_id"
           value={this.state.statusInput}
           onChange={this.handleInputChange}
