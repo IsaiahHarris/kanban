@@ -4,15 +4,15 @@ import PropTypes from 'prop-types';
 
 const Card = ({title, body, statusName, priority, status_id, created_by, assigned_to, label})=>(
   
-      <div className={statusName}>
-      <div className="card-entry">
+
+      <div className={`${statusName}-hi`}>
       <div className="title">Title: { title }</div>    
       <div className="body">Body: { body }</div>
       <div className="priority_id">Priority: { priority }</div>
       <div className="created_by">Created By { created_by }</div>
       <div className="assigned_to">Assigned To{ assigned_to }</div> 
       </div> 
-      </div> 
+
 
 )
 Card.propTypes={
