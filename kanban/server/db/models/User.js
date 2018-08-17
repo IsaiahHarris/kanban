@@ -9,11 +9,11 @@ class User extends bookshelf.Model{
   }
 
   created(){
-    return this.hasMany('Card', 'created_by')
+    return this.hasMany('Card', 'created_by',)
   }
 
   assigned(){
-    return this.hasMany('Card', 'assigned_to')
+    return this.hasMany('Card', 'assigned_to',)
   }
 }
 

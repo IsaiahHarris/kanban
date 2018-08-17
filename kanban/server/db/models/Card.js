@@ -1,5 +1,7 @@
 const bookshelf = require('./bookshelf');
-
+require('./Priorities');
+require('./Statuses');
+require('./User')
 class Card extends bookshelf.Model{
   get tableName(){
     return 'cards'
@@ -9,20 +11,20 @@ class Card extends bookshelf.Model{
   }
 
   created(){
-    return this.belongsTo('User', 'created_by')
+    return this.hasOne('User', 'id', 'created_by')
   }
 
   assigned(){
-    return this.belongsTo('User', 'assigned_to')
-  }
-
-  priority(){
-    return this.belongsTo('User', 'priority_id')
+    return this.hasOne('User', 'id', 'assigned_to')
   }
 
   status(){
-    return this.belongsTo('User', 'status_id')
+    return this.hasOne('Statuses','id', 'status_id')
   }
+  priority(){
+    return this.hasOne('Priorities', 'id', 'priority_id')
+  }
+
 }
 
 module.exports = bookshelf.model('Card', Card);

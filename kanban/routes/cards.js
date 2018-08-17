@@ -1,10 +1,10 @@
 const express = require('express')
 const router = express.Router();
 const Card = require('../server/db/models/Card')
-
 router.route('/')
   .get((req, res) => {
-    return Card.fetchAll()
+    console.log('get cards')
+    return Card.fetchAll({withRelated: ['priority', 'created', 'assigned']})
       .then(cards => {
         return res.json(cards)
       })

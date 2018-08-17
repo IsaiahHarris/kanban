@@ -4,7 +4,7 @@ import './Column.css';
 import CardList from '../CardList';
 
 const Column = props => {
-  // console.log('PROPS', props)
+
   let filterFunc = filterCards(props.label, props.cards)
 
   return (
