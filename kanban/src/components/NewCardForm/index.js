@@ -53,19 +53,21 @@ class NewCardForm extends Component {
     data.priority_id = parseInt(this.state.priorityInput)
     data.created_by = parseInt(this.state.created_byInput)
     data.assigned_to = parseInt(this.state.assigned_toInput)
-
-
+    
+    console.log('this.state.statusInput', this.state.statusInput);
     switch (this.state.statusInput) {
-
-      case 'QUEUE':
+      case "QUEUE":
         data.status_id = 1
+        break;
       case 'In Progress':
         data.status_id = 2
+        break;
       case 'Done':
         data.status_id = 3
-      default:
         break;
+      default:
     }
+    console.log('data', data);
     this.props.addCard(data)
     this.setState({
       titleInput: '',
@@ -78,7 +80,7 @@ class NewCardForm extends Component {
   }
 
   render() {
-    console.log('STATUS INPUT', this.state)
+    console.log('STATUS INPUT', this.state.statusInput)
     return (
       <div className="NewCardForm-container">
         <label htmlFor="title">Title:</label>
@@ -112,13 +114,13 @@ class NewCardForm extends Component {
           <option value="spider">Spider</option>
           <option value="goldfish">Goldfish</option>
         </select> */}
-        <select name="status_id" id="status_id" 
+        <select name="status_id" id="status_id"
           value={this.state.statusInput}
           onChange={this.handleInputChange}
-          >
-          <option value = "QUEUE"> QUEUE </option>
-          <option value = "In Progress"> In Progress </option>
-          <option value = "Done" > Done </option>
+        >
+          <option value = "QUEUE" >QUEUE</option>
+          <option value = "In Progress">In Progress</option>
+          <option value = "Done">Done</option>
         </select>
         <label htmlFor="created_by">Created_by:</label>
         <input type="text"
