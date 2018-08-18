@@ -12,7 +12,7 @@ const cardsList = (state = initialState, action) => {
     case ADD_CARD:
       return [...state, action.card];
     case EDIT_CARD:
-      return [...state, action.editCard]
+      return [...state, action.cards]
     case DELETE_CARD:
       return [...action.cards]
     default:

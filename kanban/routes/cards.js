@@ -63,15 +63,15 @@ router.route('/:id')
 
   })
   .put((req, res) => {
-    let id = req.params.id
+    let id = parseInt(req.params.id)
     console.log('req.body', req.body);
     console.log('THIS IS ID', id);
     const title = req.body.title
     const body = req.body.body
-    const priority_id = req.body.priority_id
-    const status_id = req.body.status_id
-    const created_by = req.body.created_by
-    const assigned_to = req.body.assigned_to
+    const priority_id = parseInt(req.body.priority_id)
+    const status_id = parseInt(req.body.status_id)
+    const created_by = parseInt(req.body.created_by)
+    const assigned_to = parseInt(req.body.assigned_to)
 
     const card = {
       title: title ? title : null,
@@ -82,10 +82,11 @@ router.route('/:id')
       assigned_to: assigned_to ? assigned_to : null,
     }
 
-    return new Card({ where: { id: id } })
+    return new Card({ id: id })
       .save(card)
-      .then(result => {
-        res.json(result);
+      .then(cards => {
+        console.log('cards', cards);
+        res.json(cards.attributes)
       })
       .catch(err => {
         console.log('err.message', err.message);

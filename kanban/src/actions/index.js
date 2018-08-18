@@ -4,7 +4,7 @@ export const LOAD_CARDS = 'LOAD_CARDS';
 export const EDIT_CARD = 'EDIT_CARD';
 export const DELETE_CARD = 'DELETE_CARD';
 export const editCard = (card) => {
-  console.log('card', card)
+  console.log('card', card.id)
   return dispatch => {
     return axios.put(`/api/cards/${card.id}`, card)
       .then(response => {
