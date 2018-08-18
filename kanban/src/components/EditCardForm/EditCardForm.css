@@ -1,0 +1,17 @@
+.show{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  display: block;
+}
+
+.EditCardForm-container{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  display: none;
+}
+
+#button{
+  display: block !important;
+}

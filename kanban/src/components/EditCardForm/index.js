@@ -8,7 +8,6 @@ import axios from 'axios';
 class EditCardForm extends Component {
   constructor(props) {
     super(props)
-
     this.state = {
       titleInput: '',
       bodyInput: '',
@@ -19,7 +18,21 @@ class EditCardForm extends Component {
     }
     this.editThisCard = this.editThisCard.bind(this)
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.showEditForm = this.showEditForm.bind(this)
   }
+
+  showEditForm(event){
+    event.target = document.getElementById('EditCardForm-container')
+    console.log('event', event.target);
+
+
+    // if(this.event.target.id === 'show'){
+    //   this.event.target.id = 'EditCardForm-container'
+    // }else if(this.event.target.id === 'EditCardForm-container') {
+    //   this.event.target.id = 'show' 
+    // }
+  }
+
   handleInputChange(event) {
     console.log('event.target', event.target);
     switch (event.target.id) {
@@ -47,7 +60,6 @@ class EditCardForm extends Component {
   }
 
   editThisCard(event) {
-
     const data = {}
     data.title = this.state.titleInput
     data.body = this.state.bodyInput
@@ -80,7 +92,10 @@ class EditCardForm extends Component {
 
   render() {
     return (
-      <div className="NewCardForm-container">
+      <div>
+
+
+      <div class="EditCardForm-container">
         <label htmlFor="title">Title:</label>
         <input type="text"
           name="title"
@@ -130,6 +145,7 @@ class EditCardForm extends Component {
           onChange={this.handleInputChange}
         />
         <EditCardButton label='Add Task' clickHandler={this.editThisCard} />
+      </div>
       </div>
     )
   }

@@ -11,6 +11,13 @@ body, html{
   width:100%;
 }
 
+.edit-card-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center
+}
+
 .Done-card{
   height: 20%;
   margin-top:10px;
