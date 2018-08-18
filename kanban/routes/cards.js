@@ -59,14 +59,15 @@ router.route('/:id')
       .catch(err => {
         console.log('err.message', err.message);
       })
-      
-      
+
+
   })
   .put((req, res) => {
     let id = req.params.id
+    console.log('req.body', req.body);
     console.log('THIS IS ID', id);
-    const title = req.body.title.trim()
-    const body = req.body.body.trim()
+    const title = req.body.title
+    const body = req.body.body
     const priority_id = req.body.priority_id
     const status_id = req.body.status_id
     const created_by = req.body.created_by

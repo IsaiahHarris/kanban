@@ -17,8 +17,8 @@ class Card extends React.Component {
 
   showDiv(e) {
     this.setState({ show: !this.state.show })
-
   }
+
   render() {
     const id = this.props.id;
     return (
@@ -31,7 +31,7 @@ class Card extends React.Component {
         <div className="assigned_to">Assigned To: {this.props.assigned_to}</div>
         <button className="button" onClick={this.showDiv.bind(this)}>button</button>
         <button className="del" onClick={() => { this.props.deleteCard(id) }}>del</button>
-        {this.state.show && <EditCardForm>
+        {this.state.show && <EditCardForm id={id} >
           <EditCardButton
             statusName={this.props.statusName}
             title={this.props.title}

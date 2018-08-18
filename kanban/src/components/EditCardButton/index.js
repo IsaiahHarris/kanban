@@ -6,5 +6,4 @@ const EditCardButton = props=>{
     <button onClick = {props.clickHandler}>hi</button>
   )
 }
-
 export default EditCardButton;

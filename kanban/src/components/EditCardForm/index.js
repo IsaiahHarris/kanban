@@ -3,7 +3,7 @@ import EditCardButton from '../EditCardButton'
 import { editCard } from '../../actions';
 import { connect } from 'react-redux'
 import './EditCardForm.css';
-import axios from 'axios';
+
 
 class EditCardForm extends Component {
   constructor(props) {
@@ -54,6 +54,7 @@ class EditCardForm extends Component {
     data.created_by = parseInt(this.state.created_byInput)
     data.assigned_to = parseInt(this.state.assigned_toInput)
     data.priority_id = parseInt(this.state.priorityInput)
+    data.id = this.props.id
 
     switch (this.state.statusInput) {
       case "QUEUE":
@@ -67,9 +68,10 @@ class EditCardForm extends Component {
         break;
       default:
     }
-    console.log('this.props', this.props);
-    console.log('data', data);
-    // this.props.editCard({id})
+    // console.log('this.props', this.props);
+    console.log('data', data.id);
+    
+    this.props.editCard(data)
     this.setState({
       titleInput: '',
       bodyInput: '',
@@ -81,11 +83,8 @@ class EditCardForm extends Component {
   }
 
   render() {
-
     return (
       <div>
-
-
       <div className="EditCardForm-container">
         <label htmlFor="title">Title:</label>
         <input type="text"
@@ -135,7 +134,7 @@ class EditCardForm extends Component {
           value={this.state.assigned_toInput}
           onChange={this.handleInputChange}
         />
-        <EditCardButton label='Add Task' clickHandler={this.editThisCard} />
+        <EditCardButton label='Add Task'clickHandler={this.editThisCard} />
       </div>
       </div>
     )
