@@ -67,7 +67,7 @@ class EditCardForm extends Component {
       assigned_toInput: ''
     })
 
-   event.target = document.getElementById('hellobro')
+   event.target = document.getElementsByClassName('EditCardForm-container')[0]
    event.target.className = 'none';
   }
 

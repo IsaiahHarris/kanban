@@ -15,6 +15,7 @@ const cardsList = (state = initialState, action) => {
     case ADD_CARD:
       return [...state, action.card];
     case EDIT_CARD:
+    let zero = state[0]
     state.map(card => {
       if (card.id === Number(action.editCard.id)) {
         state.splice(state.indexOf(card), 1)

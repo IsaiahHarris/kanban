@@ -64,31 +64,18 @@ router.route('/:id')
   })
   .put((req, res) => {
     let id = parseInt(req.params.id)
-    console.log('req.body', req.body);
-    console.log('THIS IS ID', id);
     const title = req.body.title
     const body = req.body.body
     const priority_id = parseInt(req.body.priority_id)
     const status_id = parseInt(req.body.status_id)
     const created_by = parseInt(req.body.created_by)
     const assigned_to = parseInt(req.body.assigned_to)
-
-    const card = {
-      title: title ? title : null,
-      body: body ? body : null,
-      priority_id: priority_id ? priority_id : null,
-      status_id: status_id ? status_id : null,
-      created_by: created_by ? created_by : null,
-      assigned_to: assigned_to ? assigned_to : null,
-    }
-
     return new Card({ id: id })   
-      .save(card)
-      .then((response)=>{
+      .save({title, body, priority_id, status_id, created_by, assigned_to})
+      .then(response=>{
         return response.refresh({ withRelated: ['priority', 'status', 'created', 'assigned'] })
       })
       .then(cards => {
-        console.log('cards', cards);
         res.json(cards)
       })
       .catch(err => {
@@ -97,7 +84,7 @@ router.route('/:id')
   })
   .delete((req, res) => {
     const id = req.params.id;
-    console.log('id', id);
+    // console.log('id', id);
     return new Card({ id: id })
       .destroy()
       .then(cards => {
