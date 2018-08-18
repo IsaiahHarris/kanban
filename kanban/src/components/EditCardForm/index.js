@@ -16,21 +16,9 @@ class EditCardForm extends Component {
       created_byInput: '',
       assigned_toInput: '',
     }
+    console.log('this.props', this.props);
     this.editThisCard = this.editThisCard.bind(this)
     this.handleInputChange = this.handleInputChange.bind(this);
-    this.showEditForm = this.showEditForm.bind(this)
-  }
-
-  showEditForm(event){
-    event.target = document.getElementById('EditCardForm-container')
-    console.log('event', event.target);
-
-
-    // if(this.event.target.id === 'show'){
-    //   this.event.target.id = 'EditCardForm-container'
-    // }else if(this.event.target.id === 'EditCardForm-container') {
-    //   this.event.target.id = 'show' 
-    // }
   }
 
   handleInputChange(event) {
@@ -66,6 +54,7 @@ class EditCardForm extends Component {
     data.created_by = parseInt(this.state.created_byInput)
     data.assigned_to = parseInt(this.state.assigned_toInput)
     data.priority_id = parseInt(this.state.priorityInput)
+
     switch (this.state.statusInput) {
       case "QUEUE":
         data.status_id = 1
@@ -78,8 +67,9 @@ class EditCardForm extends Component {
         break;
       default:
     }
+    console.log('this.props', this.props);
     console.log('data', data);
-    this.props.editCard(data)
+    // this.props.editCard({id})
     this.setState({
       titleInput: '',
       bodyInput: '',
@@ -91,11 +81,12 @@ class EditCardForm extends Component {
   }
 
   render() {
+
     return (
       <div>
 
 
-      <div class="EditCardForm-container">
+      <div className="EditCardForm-container">
         <label htmlFor="title">Title:</label>
         <input type="text"
           name="title"

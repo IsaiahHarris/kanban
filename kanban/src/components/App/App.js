@@ -1,12 +1,12 @@
 import React from 'react';
-import logo from '../../logo.svg';
-import axios from 'axios';
+
+
 import { connect } from 'react-redux';
 import { loadCards } from '../../actions';
-import Card from '../Card'
+
 import './App.css';
 import NewCardForm from '../NewCardForm'
-import CardList from '../CardList';
+
 import Header from '../Header'
 import Column from '../Column'
 class App extends React.Component {
@@ -17,7 +17,7 @@ class App extends React.Component {
 
   componentDidMount() {
     this.props.loadCards();
-    console.log('this.props', this.props);
+
   }
 
   render() {

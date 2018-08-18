@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import AddCardButton from '../AddCardButton';
 import { addCard } from '../../actions'
 import { connect } from 'react-redux'
-import {editCard} from '../../actions'
 import './NewCardForm.css'
-import axios from 'axios';
+
 class NewCardForm extends Component {
   constructor(props) {
     super(props)
@@ -21,7 +20,7 @@ class NewCardForm extends Component {
   }
 
   handleInputChange(event) {
-    console.log('event.target', event.target);
+
     switch (event.target.id) {
       case 'title':
         this.setState({ titleInput: event.target.value })
@@ -66,7 +65,7 @@ class NewCardForm extends Component {
         break;
       default:
     }
-    console.log('data', data);
+
     this.props.addCard(data)
     this.setState({
       titleInput: '',
@@ -79,7 +78,7 @@ class NewCardForm extends Component {
   }
 
   render() {
-    console.log('STATUS INPUT', this.state.priorityInput)
+
     return (
       <div className="NewCardForm-container">
         <label htmlFor="title">Title:</label>

@@ -3,7 +3,7 @@ import './EditCardButton.css';
 
 const EditCardButton = props=>{
   return (
-    <button>hi</button>
+    <button onClick = {props.clickHandler}>hi</button>
   )
 }
 

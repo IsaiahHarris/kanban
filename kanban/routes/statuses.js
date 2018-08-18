@@ -4,7 +4,7 @@ const Statuses = require('../server/db/models/Statuses');
 
 router.route('/')
   .get((req, res) => {
-    console.log('status')
+
     return Statuses.fetchAll()
       .then(result => {
         return res.json(result)
@@ -16,10 +16,10 @@ router.route('/')
 
 router.route('/status')
   .get((req, res, ) => {
-    console.log('hi');
+
     return Statuses.fetchAll({ withRelated: ['status'] })
       .then(cards => {
-        console.log('CARDS', cards)
+
         res.json(cards)
       })
       .catch(err => {

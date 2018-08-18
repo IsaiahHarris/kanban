@@ -1,4 +1,4 @@
-import { LOAD_CARDS, ADD_CARD, EDIT_CARD } from '../actions'
+import { LOAD_CARDS, ADD_CARD, EDIT_CARD, DELETE_CARD } from '../actions'
 
 
 const initialState = [
@@ -12,8 +12,9 @@ const cardsList = (state = initialState, action) => {
     case ADD_CARD:
       return [...state, action.card];
     case EDIT_CARD:
-    console.log('[...state, action.editCard]', [...state, action.editCard]);
       return [...state, action.editCard]
+    case DELETE_CARD:
+      return [...action.cards]
     default:
       return state;
 

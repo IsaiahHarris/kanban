@@ -10,7 +10,6 @@ const CardList = props => {
         props.cards.map((card, i) => {
           const statusName = card && card.status ? card.status.name:null
           const priorityName = card && card.priority ? card.priority.name : null
-          console.log('typeof priorityName', typeof priorityName);
           const created_by = card && card.created ? card.created.first_name : null
           const assigned_to = card && card.assigned ? card.assigned.first_name : null
           return <Card key={i}
@@ -21,6 +20,7 @@ const CardList = props => {
             status_id={card.status_id}
             created_by={created_by}
             assigned_to={assigned_to}
+            id = {card.id}
           />
         })
       }

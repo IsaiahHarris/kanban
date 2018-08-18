@@ -2,10 +2,11 @@ import axios from 'axios';
 export const ADD_CARD = 'ADD_CARD';
 export const LOAD_CARDS = 'LOAD_CARDS';
 export const EDIT_CARD = 'EDIT_CARD';
-
-export const editCard = ()=>{
+export const DELETE_CARD = 'DELETE_CARD';
+export const editCard = (card)=>{
+  console.log('card',card)
   return dispatch=>{
-    return axios.get('/api/cards/:id')
+    return axios.put(`/api/cards/${card.id}`)
     .then(response=>{
       dispatch({
         type:EDIT_CARD,
@@ -36,6 +37,19 @@ export const addCard = (data) =>{
       dispatch({
         type: ADD_CARD,
         card: response.data
+      })
+    })
+  }
+}
+
+export const deleteCard = card =>{
+  return dispatch=>{
+    return axios.delete(`/api/cards/${card}`)
+    .then(response=>{
+      console.log('response', response);
+      dispatch({
+        type: DELETE_CARD,
+        cards: response.data
       })
     })
   }
