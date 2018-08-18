@@ -8,6 +8,7 @@ const CardList = props => {
     <div className="card-list-container">
       {
         props.cards.map((card, i) => {
+          console.log('card.status_id', card.status_id);
           const statusName = card && card.status ? card.status.name:null
           const priorityName = card && card.priority ? card.priority.name : null
           const created_by = card && card.created ? card.created.first_name : null

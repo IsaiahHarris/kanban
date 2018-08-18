@@ -82,11 +82,14 @@ router.route('/:id')
       assigned_to: assigned_to ? assigned_to : null,
     }
 
-    return new Card({ id: id })
+    return new Card({ id: id })   
       .save(card)
+      .then((response)=>{
+        return response.refresh({ withRelated: ['priority', 'status', 'created', 'assigned'] })
+      })
       .then(cards => {
         console.log('cards', cards);
-        res.json(cards.attributes)
+        res.json(cards)
       })
       .catch(err => {
         console.log('err.message', err.message);
