@@ -3,11 +3,13 @@ export const ADD_CARD = 'ADD_CARD';
 export const LOAD_CARDS = 'LOAD_CARDS';
 export const EDIT_CARD = 'EDIT_CARD';
 export const DELETE_CARD = 'DELETE_CARD';
+
 export const editCard = (card) => {
-  console.log('card', card.id)
+  // console.log('card', card.id)
   return dispatch => {
     return axios.put(`/api/cards/${card.id}`, card)
       .then(response => {
+        // console.log('response', response);
         dispatch({
           type: EDIT_CARD,
           editCard: response.data

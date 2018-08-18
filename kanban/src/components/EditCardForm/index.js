@@ -56,21 +56,7 @@ class EditCardForm extends Component {
     data.priority_id = parseInt(this.state.priorityInput)
     data.id = this.props.id
     data.status_id = parseInt(this.state.statusInput)
-    // switch (this.state.statusInput) {
-    //   case "QUEUE":
-    //     data.status_id = 1
-    //     break;
-    //   case 'In Progress':
-    //     data.status_id = 2
-    //     break;
-    //   case 'Done':
-    //     data.status_id = 3
-    //     break;
-    //   default:
-    // }
-    // console.log('this.props', this.props);
     console.log('data', data);
-
     this.props.editCard(data)
     this.setState({
       titleInput: '',
@@ -144,6 +130,12 @@ class EditCardForm extends Component {
   }
 }
 
+const mapStateToProps = state => { 
+  return {
+    cards: state.EditCardForm
+  }
+}
+
 const mapDispatchToProps = dispatch => {
   return {
     editCard: (card) => {
@@ -152,4 +144,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(EditCardForm)
+export default connect(mapStateToProps, mapDispatchToProps)(EditCardForm)

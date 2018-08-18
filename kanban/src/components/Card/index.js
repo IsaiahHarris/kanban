@@ -22,8 +22,7 @@ class Card extends React.Component {
   render() {
     const id = this.props.id;
     return (
-
-      <div className={`${this.props.statusName}-card`} id = 'hellobro'>
+      <div className={`${this.props.statusName}-card`} id='hellobro'>
         <div className="title">Title: {this.props.title}</div>
         <div className="body">Body: {this.props.body}</div>
         <div className="priority_id">Priority: {this.props.priority}</div>
@@ -31,7 +30,7 @@ class Card extends React.Component {
         <div className="assigned_to">Assigned To: {this.props.assigned_to}</div>
         <button className="button" onClick={this.showDiv.bind(this)}>button</button>
         <button className="del" onClick={() => { this.props.deleteCard(id) }}>del</button>
-        {this.state.show && <EditCardForm id={id} status_id = {this.props.status_id}>
+        {this.state.show && <EditCardForm id={id} status_id={this.props.status_id}>
           <EditCardButton
             statusName={this.props.statusName}
             title={this.props.title}
@@ -39,9 +38,7 @@ class Card extends React.Component {
             priority={this.props.priority}
             created_by={this.props.created_by}
             assigned_to={this.props.assigned_to}
-            
           />
-
         </EditCardForm>}
 
       </div>

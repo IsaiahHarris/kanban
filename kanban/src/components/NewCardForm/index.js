@@ -78,7 +78,6 @@ class NewCardForm extends Component {
   }
 
   render() {
-
     return (
       <div className="NewCardForm-container">
         <label htmlFor="title">Title:</label>
@@ -135,6 +134,13 @@ class NewCardForm extends Component {
   }
 }
 
+
+const mapStateToProps = state => { 
+  return {
+    cards: state.NewCardForm
+  }
+}
+
 const mapDispatchToProps = dispatch => {
   return {
     addCard: (card) => {
@@ -143,6 +149,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-
-
-export default connect(null, mapDispatchToProps)(NewCardForm)
+export default connect(mapStateToProps, mapDispatchToProps)(NewCardForm)

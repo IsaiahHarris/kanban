@@ -1,4 +1,4 @@
-import { LOAD_CARDS, ADD_CARD, EDIT_CARD, DELETE_CARD } from '../actions'
+import { LOAD_CARDS, ADD_CARD, EDIT_CARD, DELETE_CARD, editCard } from '../actions'
 
 
 const initialState = [
@@ -6,18 +6,30 @@ const initialState = [
 ];
 
 const cardsList = (state = initialState, action) => {
+
+  let id = action && action.editCard ? action.editCard.id:null
+
   switch (action.type) {
     case LOAD_CARDS:
       return [...action.cards];
     case ADD_CARD:
       return [...state, action.card];
     case EDIT_CARD:
-      return [...state, action.editCard]
+    let newState = [...state];
+    state.map(card => {
+      console.log('card action', action.editCard.id);
+      if (parseInt(card.id) === action.editCard.id) {
+        newState = state.slice(0, state.indexOf(card))
+        newState.push(action.editCard)
+      }
+    })
+    console.log('[...newState]', [...newState]);
+    return [...newState]
     case DELETE_CARD:
       return [...action.cards]
     default:
+    console.log('default')
       return state;
-
   }
 }
 

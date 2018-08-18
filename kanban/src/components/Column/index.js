@@ -10,7 +10,7 @@ const Column = props => {
   return (
     <div className="column-container">
       <div className={props.label}>{props.label}</div>
-      <CardList cards={filterFunc} prioritySort = {sortedCards} />
+      <CardList cards={filterFunc} prioritySort={sortedCards} />
     </div>
   )
 }
@@ -18,17 +18,16 @@ const Column = props => {
 
 
 function filterCards(label, cards) {
-
-  switch (label) {
-    case 'QUEUE':
-      return cards.filter(card =>card.status_id === 1);
-    case 'In Progress':
-      return cards.filter(card => card.status_id === 2);
-    case 'Done':
-      return cards.filter(card => card.status_id === 3);
-    default:
-      return cards;
-  }
+    switch (label) {
+      case 'QUEUE':
+        return cards.filter(card => card.status_id === 1);
+      case 'In Progress':
+        return cards.filter(card => card.status_id === 2);
+      case 'Done':
+        return cards.filter(card => card.status_id === 3);
+      default:
+        return cards;
+    }
 }
 
 function sortPriority(cards) {
