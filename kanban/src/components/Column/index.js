@@ -10,7 +10,7 @@ const Column = props => {
   return (
     <div className="column-container">
       <div className={props.label}>{props.label}</div>
-      <CardList cards={filterFunc} prioritySort={sortedCards} />
+      <CardList cards={filterFunc} users= {props.users} prioritySort={sortedCards} />
     </div>
   )
 }

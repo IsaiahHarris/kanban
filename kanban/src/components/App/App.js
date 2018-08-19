@@ -26,9 +26,9 @@ class App extends React.Component {
       <div className="App">
         <Header />
         <div className="main-body">
-          <Column status_id={this.props.status_id} label="QUEUE" cards={this.props.cards} />
-          <Column status_id={this.props.status_id} label="In Progress" cards={this.props.cards} />
-          <Column status_id={this.props.status_id} label="Done" cards={this.props.cards} />
+          <Column status_id={this.props.status_id} users = {this.props.users} label="QUEUE" cards={this.props.cards} />
+          <Column status_id={this.props.status_id} users = {this.props.users} label="In Progress" cards={this.props.cards} />
+          <Column status_id={this.props.status_id} users = {this.props.users} label="Done" cards={this.props.cards} />
         </div>
         <NewCardForm users = {this.props.users}/>
       </div>

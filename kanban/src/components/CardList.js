@@ -21,6 +21,7 @@ const CardList = props => {
             created_by={created_by}
             assigned_to={assigned_to}
             id = {card.id}
+            users = {props.users}
           />
         })
       }

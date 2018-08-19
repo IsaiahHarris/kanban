@@ -4,7 +4,6 @@ import { editCard } from '../../actions';
 import { connect } from 'react-redux'
 import './EditCardForm.css';
 
-
 class EditCardForm extends Component {
   constructor(props) {
     super(props)
@@ -16,7 +15,7 @@ class EditCardForm extends Component {
       created_byInput: '',
       assigned_toInput: '',
     }
-    console.log('this.props', this.props);
+    console.log('edit card form props', props);
     this.editThisCard = this.editThisCard.bind(this)
     this.handleInputChange = this.handleInputChange.bind(this);
   }
@@ -67,8 +66,8 @@ class EditCardForm extends Component {
       assigned_toInput: ''
     })
 
-   event.target = document.getElementsByClassName('EditCardForm-container')[0]
-   event.target.className = 'none';
+    event.target = document.getElementsByClassName('EditCardForm-container')[0]
+    event.target.className = 'none';
   }
 
   render() {
@@ -116,13 +115,20 @@ class EditCardForm extends Component {
             value={this.state.created_byInput}
             onChange={this.handleInputChange}
           />
-          <label htmlFor="assigned_to">Assigned_to:</label>
-          <input type="text"
+          <label htmlFor="assigned_to">Assign To: </label>
+          <select
             name="assigned_to"
             id="assigned_to"
             value={this.state.assigned_toInput}
             onChange={this.handleInputChange}
-          />
+          >
+            <option value="">--Assign Task To User--</option>
+            {this.props.users.map(card => {
+              return (
+                <option key={card.id} value={card.id}>{`${card.first_name} ${card.last_name}`}</option>
+              )
+            })}
+          </select>
           <EditCardButton label='Add Task' clickHandler={this.editThisCard} />
         </div>
       </div>
@@ -130,7 +136,7 @@ class EditCardForm extends Component {
   }
 }
 
-const mapStateToProps = state => { 
+const mapStateToProps = state => {
   return {
     cards: state.EditCardForm
   }

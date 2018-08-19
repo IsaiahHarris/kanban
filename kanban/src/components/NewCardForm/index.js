@@ -124,18 +124,19 @@ class NewCardForm extends Component {
         />
 
        <label htmlFor="assigned_to">Assign To: </label>
-        <select
-          name="assigned_to"
-          id="assign_to"
-          value={this.state.assigned_toInput}
-          onChange={this.handleInputChange}
+
+        <select 
+        name="assigned_to" 
+        id="assigned_to"
+        value = {this.state.assigned_toInput}
+        onChange={this.handleInputChange}
         >
-          <option value="0">--Assign task to user--</option>
-          {this.props.users.map(card => {
-            return (
-              <option key={card.id} value={card.id}>{`${card.first_name} ${card.last_name}`}</option>
-            )
-          })}
+        <option value ="">--Assign Task To User--</option>
+        {this.props.users.map(card=>{
+          return(
+            <option key ={card.id} value = {card.id}>{`${card.first_name} ${card.last_name}`}</option>
+          )
+        })}
         </select>
         <AddCardButton label='Add Task' clickHandler={this.addNewCard} />
       </div>
