@@ -7,18 +7,6 @@ export const GET_USERS = 'GET_USERS';
 
 
 
-export const loadCards = () => {
-  return dispatch => {
-    return axios.get('/api/cards')
-      .then(response => {
-        dispatch({
-          type: LOAD_CARDS,
-          cards: response.data
-        })
-      })
-  }
-}
-
 export const addCard = (data) => {
 
   return dispatch => {
@@ -46,16 +34,28 @@ export const deleteCard = card => {
   }
 }
 
-export const getUsers = ()=>{
-  return dispatch=>{
+export const getUsers = () => {
+  return dispatch => {
     return axios.get('/api/users')
-    .then(response=>{
-      console.log('response', response);
-      dispatch({
-        type :GET_USERS,
-        users:response.data
+      .then(response => {
+        console.log('response', response);
+        dispatch({
+          type: GET_USERS,
+          users: response.data
+        })
       })
-    })
+  }
+}
+
+export const loadCards = () => {
+  return dispatch => {
+    return axios.get('/api/cards')
+      .then(response => {
+        dispatch({
+          type: LOAD_CARDS,
+          cards: response.data
+        })
+      })
   }
 }
 

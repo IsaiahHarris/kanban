@@ -79,7 +79,7 @@ class NewCardForm extends Component {
 
   render() {
     return (
-      <div className="NewCardForm-container">
+      <div id="NewCardForm-container">
         <label htmlFor="title">Title:</label>
         <input type="text"
           name="title"
