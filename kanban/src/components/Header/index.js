@@ -20,8 +20,8 @@ class Header extends React.Component {
     return (
       <header className="Header-header">
         <img src={logo} className="Header-logo" alt="logo" />
-        <button onClick={this.showForm.bind(this)}>newPost</button>
-        <h1 className="Header-title">Welcome to KanBan</h1>
+        <div className="Header-title">KANBAN</div>
+        <div className="add-task-button" onClick={this.showForm.bind(this)}>➕ NEW TASK</div>
       </header>
     )
   }

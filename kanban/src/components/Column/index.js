@@ -1,5 +1,4 @@
 import React from 'react';
-import Card from '../Card';
 import './Column.css';
 import CardList from '../CardList';
 
@@ -19,7 +18,7 @@ const Column = props => {
 
 function filterCards(label, cards) {
     switch (label) {
-      case 'QUEUE':
+      case 'Queue':
         return cards.filter(card => card.status_id === 1);
       case 'In Progress':
         return cards.filter(card => card.status_id === 2);

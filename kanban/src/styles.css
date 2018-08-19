@@ -5,10 +5,11 @@ body, html{
 
 .card-list-container{
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   flex-wrap:wrap;
-  height: 70%;
-  width:100%;
+  height: 100%;
+  width:85%;
 }
 
 .edit-card-form{
@@ -19,27 +20,40 @@ body, html{
 }
 
 .Done-card{
-  height: 20%;
+  height: 15%;
   margin-top:10px;
   width:100%;
-  background-color: green;
+  
+  background-color:#f7f8fb;
+  border: 1px solid #bfc6d3;
   margin-top:10px;
+  text-align:left;
+  padding:12px;
 }
 
 .Queue-card{
-  height: 20%;
+  height: 15%;
   margin-top:10px;
   width:100%;
-  background-color: red;
-  margin-top:10px;
+  background-color: #fdf1de;
+  border:1px solid #f7a51c; 
+  text-align: left;
+  padding:12px;
 }
 
+.del{
+  margin-right:7px;
+}
 .In.Progress-card{
-  height: 20%;
+  height: 15%;
   margin-top:10px;
   width:100%;
-  background-color: goldenrod;
+  background-color: #e5fdca;
+  border:1px solid #81cc2d;
+
   margin-top:10px;
+  padding:12px;
+  text-align: left;
 }
 
 
@@ -47,17 +61,17 @@ body, html{
   height: 100%;
 }
 
-.Done{
-  background-color: green;
-  height: 100%;
-}
-.QUEUE{
-  background-color: red;
-  height:100%;
-}
-
-.In.Progress{
-  background-color: goldenrod;
-  height: 100%;
+.In.Progress, .Done, .Queue{
+  width:100%;
+  padding:10px 0;
+  display: flex;
+  justify-content: center;
+  letter-spacing: 1px;
+  font-size:20px;
 }
 
+.action-container{
+  margin-top:5px;
+  display: flex;
+  justify-content: space-between;
+}

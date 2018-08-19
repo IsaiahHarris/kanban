@@ -28,8 +28,10 @@ class Card extends React.Component {
         <div className="priority_id">Priority: {this.props.priority}</div>
         <div className="created_by">Created By: {this.props.created_by}</div>
         <div className="assigned_to">Assigned To: {this.props.assigned_to}</div>
-        <button className="button" onClick={this.showDiv.bind(this)}>Edit</button>
-        <button className="del" onClick={() => { this.props.deleteCard(id) }}>Delete</button>
+        <div className="action-container">
+        <div className="button" onClick={this.showDiv.bind(this)}>Edit</div>
+        <div className="del" onClick={() => { this.props.deleteCard(id) }}>Delete</div>
+        </div>
         {this.state.show && <EditCardForm id={id} users={this.props.users} created_by={this.props.created_by} status_id={this.props.status_id}>
           <EditCardButton
             statusName={this.props.statusName}
