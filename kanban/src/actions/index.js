@@ -5,19 +5,7 @@ export const EDIT_CARD = 'EDIT_CARD';
 export const DELETE_CARD = 'DELETE_CARD';
 export const GET_USERS = 'GET_USERS';
 
-export const editCard = (card) => {
-  // console.log('card', card.id)
-  return dispatch => {
-    return axios.put(`/api/cards/${card.id}`, card)
-      .then(response => {
-        // console.log('response', response);
-        dispatch({
-          type: EDIT_CARD,
-          editCard: response.data
-        })
-      })
-  }
-}
+
 
 export const loadCards = () => {
   return dispatch => {
@@ -62,10 +50,25 @@ export const getUsers = ()=>{
   return dispatch=>{
     return axios.get('/api/users')
     .then(response=>{
+      console.log('response', response);
       dispatch({
         type :GET_USERS,
         users:response.data
       })
     })
+  }
+}
+
+export const editCard = (card) => {
+  // console.log('card', card.id)
+  return dispatch => {
+    return axios.put(`/api/cards/${card.id}`, card)
+      .then(response => {
+        // console.log('response', response);
+        dispatch({
+          type: EDIT_CARD,
+          editCard: response.data
+        })
+      })
   }
 }

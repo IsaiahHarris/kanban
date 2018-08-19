@@ -124,7 +124,7 @@ class NewCardForm extends Component {
         />
 
        <label htmlFor="assigned_to">Assign To: </label>
-        <select
+        {/* <select
           name="assigned_to"
           id="assign_to"
           value={this.state.assigned_toInput}
@@ -136,7 +136,7 @@ class NewCardForm extends Component {
               <option key={card.id} value={card.id}>{`${card.first_name} ${card.last_name}`}</option>
             )
           })}
-        </select>
+        </select> */}
         <AddCardButton label='Add Task' clickHandler={this.addNewCard} />
       </div>
     )
