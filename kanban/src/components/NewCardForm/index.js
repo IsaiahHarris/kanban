@@ -115,19 +115,28 @@ class NewCardForm extends Component {
           <option value="Done">Done</option>
         </select>
         <label htmlFor="created_by">Created_by:</label>
+        
         <input type="text"
           name="created_by"
           id="created_by"
           value={this.state.created_byInput}
           onChange={this.handleInputChange}
         />
-        <label htmlFor="assigned_to">Assigned_to:</label>
-        <input type="text"
+
+       <label htmlFor="assigned_to">Assign To: </label>
+        <select
           name="assigned_to"
-          id="assigned_to"
+          id="assign_to"
           value={this.state.assigned_toInput}
           onChange={this.handleInputChange}
-        />
+        >
+          <option value="0">--Assign task to user--</option>
+          {this.props.users.map(card => {
+            return (
+              <option key={card.id} value={card.id}>{`${card.first_name} ${card.last_name}`}</option>
+            )
+          })}
+        </select>
         <AddCardButton label='Add Task' clickHandler={this.addNewCard} />
       </div>
     )
