@@ -1,0 +1,6 @@
+.card{
+  background-color:green;
+}
+.In.Progress, .QUEUE, .Done{
+  color: #4c525a;
+}
