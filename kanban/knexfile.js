@@ -1,13 +1,12 @@
 // Update with your config settings.
-const path = require('path')
+const path = require('path');
 module.exports = {
-
   development: {
     client: 'postgresql',
     connection: {
       database: 'kanban_db',
-      user:     'kanban_user',
-      password: 'password'
+      user: process.env.DB_USER,
+      password: process.env.DB_PASS
     },
     pool: {
       min: 2,
@@ -23,7 +22,7 @@ module.exports = {
     client: 'postgresql',
     connection: {
       database: 'my_db',
-      user:     'username',
+      user: 'username',
       password: 'password'
     },
     pool: {
@@ -39,7 +38,7 @@ module.exports = {
     client: 'postgresql',
     connection: {
       database: 'my_db',
-      user:     'username',
+      user: 'username',
       password: 'password'
     },
     pool: {
@@ -50,5 +49,4 @@ module.exports = {
       tableName: 'knex_migrations'
     }
   }
-
 };
